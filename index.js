@@ -1,6 +1,12 @@
 const TelegramBot = require('node-telegram-bot-api')
+const express = require('express');
 const token = '6968485063:AAGBH5VvCG-_5sFsrTlOwkZui_3K1Or2epo'
-global.bot = new TelegramBot(token, { polling: true, webhook.port: process.env.PORT })
+global.bot = new TelegramBot(token, { polling: true})
+const app = express();
+const port = process.env.PORT || 3000
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
 bot.on('message', (msg) => {
     console.log(msg)
     if (msg.chat.id == '1080302297' && msg.chat.username == 'roberth0') {
